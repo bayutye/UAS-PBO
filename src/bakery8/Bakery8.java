@@ -16,44 +16,40 @@ public class Bakery8 {
      */
     public static void main(String[] args) {
         RotiManis m1 = new RotiManis();
-        m1.pesanManis = 220;
         m1.pesanManis1 = 50;
         m1.pesanManis2 = 100;
         m1.pesanManis3 = 70;
         m1.satuanBahan();
         m1.hargaBahan();
-        m1.tfKeju();
-        m1.tfCoklat();
-        m1.tfRedbean();
-        m1.tfVanilla();
-        m1.tfSosis();
-        m1.output();
-        System.out.println("------------------------------");
-        System.out.println("------------------------------");
+        m1.hKeju1();
+        m1.hCoklat();
+        m1.hRedbean();
+        m1.hVanilla();
+        m1.hSosis();
+        m1.output1();
+        m1.output2();
+        m1.output3();
+        System.out.println("\n");
         
         RotiTawar t1 = new RotiTawar();
-        t1.pesanTawar = 35;
         t1.pesanTawar1 = 20;
         t1.pesanTawar2 = 15;
         t1.satuanBahan();
         t1.hargaBahan();
-        t1.tfKeju();
-        t1.tfCoklat();
+        t1.hKeju();
+        t1.hCoklat();
         t1.output();
-        System.out.println("------------------------------");
-        System.out.println("------------------------------");
-     
+        t1.output2();
+        System.out.println("\n");
+    
         Pizza p1 = new Pizza();
         p1.pesanPizza = 10;
-        p1.pesanPizza1 = 10;
         p1.satuanBahan();
         p1.hargaBahan();
-        p1.tfKeju();
-        p1.tfSosis();
-        p1.tfSmokedBeef();
-        p1.tfBawangBombay();
-        p1.output();
-        
+        p1.hKeju();
+        p1.hSosis();
+        p1.hSmokedBeef();
+        p1.hBawangBombay();
+        p1.output();   
     }
-    
 }

@@ -14,7 +14,6 @@ public class Pizza extends Bahan implements ToppingFilling {
     double beratAdonan = 1950;
     double beratSatuan = 190;
     double pesanPizza;
-    double pesanPizza1;
     
     //komposisi bahan roti manis
     double beratTepung = 1000;
@@ -62,70 +61,80 @@ public class Pizza extends Bahan implements ToppingFilling {
         hTelur = this.telur * this.hargaTelur;
         hEsBatu = this.esBatu * this.hargaEsBatu;
     }
-
-    @Override
-    public void tfKeju() {
-        bahanKeju = this.toppingKeju1 * this.pesanPizza1;
-        hargaKeju = bahanKeju * KEJU;
-    }
-
-    @Override
-    public void tfCoklat() {
-        
-    }
-
-    @Override
-    public void tfVanilla() {
-        
-    }
-
-    @Override
-    public void tfRedbean() {
-        
-    }
-
-    @Override
-    public void tfSosis() {
-        bahanSosis = this.toppingSosis1 * this.pesanPizza1;
-        hargaSosis = bahanSosis * SOSIS;
-    }
-
-    @Override
-    public void tfSmokedBeef() {
-        bahanSmokedBeef = this.toppingSmokedBeef1 * this.pesanPizza1;
-        hargaSmokedBeef = bahanSmokedBeef * SMOKEDBEEF;
-    }
-
-    @Override
-    public void tfBawangBombay() {
-        bahanBawangBombay = this.toppingBawangBombay1 * this.pesanPizza1;
-        hargaBawangBombay = bahanBawangBombay * BAWANGBOMBAY;
+    
+    public double bKeju(){
+        double bahanKeju = this.toppingKeju1 * this.pesanPizza;
+        return bahanKeju;
     }
     
-    @Override
+    public double hKeju(){
+        double hargaKeju = bKeju() * KEJU;
+        return hargaKeju;
+    }
+    public double bSosis(){
+        double bahanSosis = this.toppingSosis1 * this.pesanPizza;
+        return bahanSosis;
+    }
+    
+    public double hSosis(){
+        double hargaSosis = bSosis() * SOSIS;
+        return hargaSosis;
+    }
+
+    public double bSmokedBeef(){
+        double bahanSmokedBeef = this.toppingSmokedBeef1 * this.pesanPizza;
+        return bahanSmokedBeef;
+    }
+    
+    public double hSmokedBeef(){
+        double hargaSmokedBeef = bSmokedBeef()* SMOKEDBEEF;
+        return hargaSmokedBeef;
+    }
+    
+    public double bBawangBombay(){
+        double bahanBawangBombay = this.toppingBawangBombay1 * this.pesanPizza;
+        return bahanBawangBombay;
+    }
+    
+    public double hBawangBombay(){
+        double hargaBawangBombay = bBawangBombay() * BAWANGBOMBAY;
+        return hargaBawangBombay;
+    }
+    
+    
+    private final String strFormat = "||%1$-4s%2$-24s %3$-16s %4$-16s||\n";
+    
     public void output() {
-        int totalModal = (int) (hTepung + hGulaPasir + hButter + hRagi + hSusuBubuk + hSusuCair + hTelur + hEsBatu + hargaKeju + hargaSosis + hargaSmokedBeef + hargaBawangBombay);
+        double totalModal = (int) (hTepung + hGulaPasir + hButter + hRagi + hSusuBubuk + hSusuCair + hTelur + hEsBatu)+ hKeju() + hSosis() + hSmokedBeef() + hBawangBombay();
         int profit = (int) (totalModal / pesanPizza);
-        int hargaJual = profit * 100/50;
+        int hargaJual = profit * 50/100 + profit;
         
-        System.out.println("==============================");
-        System.out.println("          ---PIZZA---         ");
-        System.out.println("==============================");
-        System.out.println("Tepung Terigu  " + (int)tepung  + " gr dengan harga Rp " + (int)hTepung);
-        System.out.println("Gula Pasir     " + (int)gulaPasir  + " gr dengan harga Rp " + (int)hGulaPasir);
-        System.out.println("Butter         " + (int)butter  + " gr dengan harga Rp " + (int)hButter);
-        System.out.println("Susu Bubuk     " + (int)susuBubuk  + " gr dengan harga Rp " + (int)hSusuBubuk);
-        System.out.println("Susu Cair      " + (int)susuCair  + " gr dengan harga Rp " + (int)hSusuCair);
-        System.out.println("Telur          " + (int)telur  + " gr dengan harga Rp " + (int)hTelur);
-        System.out.println("Es Batu        " + (int)esBatu  + " gr dengan harga Rp " + (int)hEsBatu);
-        System.out.println("-----------------------------------------------");
-        System.out.println("Keju           " + (int)bahanKeju + " gr dengan harga Rp " + (int)hargaKeju);
-        System.out.println("Sosis          " + (int)bahanSosis + " gr dengan harga Rp " + (int)hargaSosis);
-        System.out.println("Smoked Beef    " + (int)bahanSmokedBeef + " gr dengan harga Rp " + (int)hargaSmokedBeef);
-        System.out.println("Bawang Bombay  " + (int)bahanBawangBombay + " gr dengan harga Rp " + (int)hargaBawangBombay);
-        System.out.println("-----------------------------------------------");
-        System.out.println("PERHITUNGAN HARGA JUAL");
-        System.out.println("Total Modal        = " + totalModal);
-        System.out.println("Harga Jual per pcs = " + hargaJual);
+        System.out.println("==================================================================");
+        System.out.println("                          ---PIZZA---                           ");
+        System.out.println("==================================================================");
+        System.out.println("------------------------------------------------------------------");
+        System.out.format(strFormat, " No", "| Bahan", "| " + "Jumlah", "| Harga");
+        System.out.println("------------------------------------------------------------------");
+        System.out.format(strFormat, " 1.", "| Tepung Terigu", "| " + (int)tepung + " gram", "| Rp. " + (int)hTepung);
+        System.out.format(strFormat, " 2.", "| Gula Pasir", "| " + (int)gulaPasir + " gram", "| Rp. " + (int)hGulaPasir);
+        System.out.format(strFormat, " 3.", "| Butter", "| " + (int)butter + " gram", "| Rp. " + (int)hButter);
+        System.out.format(strFormat, " 4.", "| Ragi", "| " + (int)ragi + " gram", "| Rp. " + (int)hRagi);
+        System.out.format(strFormat, " 5.", "| Susu Bubuk", "| " + (int)susuBubuk + " gram", "| Rp. " + (int)hSusuBubuk);
+        System.out.format(strFormat, " 6.", "| Susu Cair", "| " + (int)susuCair + " gram", "| Rp. " + (int)hSusuCair);
+        System.out.format(strFormat, " 7.", "| Telur", "| " + (int)telur + " gram", "| Rp. " + (int)hTelur);
+        System.out.format(strFormat, " 8.", "| Es Batu", "| " + (int)esBatu + " gram", "| Rp. " + (int)hEsBatu);
+        System.out.println("------------------------------------------------------------------");
+        System.out.format(strFormat, " No", "| Toping", "| " + "Jumlah", "| Rp. " + "Harga");
+        System.out.println("------------------------------------------------------------------");
+        System.out.format(strFormat, " 1.", "| Keju", "| " + bKeju() + " gram", "| Rp. " + hKeju());
+        System.out.format(strFormat, " 2.", "| Sosis", "| " + bSosis() + " gram", "| Rp. " + hSosis());
+        System.out.format(strFormat, " 3.", "| Smoked Beef", "| " + bSmokedBeef() + " gram", "| Rp. " + hSmokedBeef());
+        System.out.format(strFormat, " 4.", "| Bawang Bombay", "| " + bBawangBombay() + " gram", "| Rp. " + hBawangBombay());
+        System.out.println("------------------------------------------------------------------");
+        System.out.println("                  ---PERHITUNGAN HARGA JUAL---                    ");
+        System.out.println("------------------------------------------------------------------");
+        System.out.format(strFormat, " --", "| Total Modal", "", "| Rp. " + totalModal);
+        System.out.format(strFormat, " --", "| Harga Jual Per pcs", "", "| Rp. " + hargaJual);
+        System.out.println("------------------------------------------------------------------");
     }
 }

@@ -20,12 +20,5 @@ public interface ToppingFilling {
     double SMOKEDBEEF = 90000/1000;
     double BAWANGBOMBAY = 40000/500;
     
-    // method
-    public void tfKeju();
-    public void tfCoklat();
-    public void tfVanilla();
-    public void tfRedbean();
-    public void tfSosis();
-    public void tfSmokedBeef();
-    public void tfBawangBombay();
+    // methodS
 }

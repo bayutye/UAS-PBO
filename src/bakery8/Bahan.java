@@ -20,6 +20,22 @@ public abstract class Bahan {
     public double susuCair;
     public double telur;
     public double esBatu;
+    public double tepung2;
+    public double gulaPasir2;
+    public double butter2;
+    public double ragi2;
+    public double susuBubuk2;
+    public double susuCair2;
+    public double telur2;
+    public double esBatu2;
+    public double tepung3;
+    public double gulaPasir3;
+    public double butter3;
+    public double ragi3;
+    public double susuBubuk3;
+    public double susuCair3;
+    public double telur3;
+    public double esBatu3;
     
     //komposisi bahan topping filling
     public double bahanKeju;
@@ -29,6 +45,7 @@ public abstract class Bahan {
     public double bahanSosis;
     public double bahanSmokedBeef;
     public double bahanBawangBombay;
+    
     
     // harga bahan toping dan filling
     public double hargaKeju;
@@ -58,6 +75,22 @@ public abstract class Bahan {
     public double hSusuCair;
     public double hTelur;
     public double hEsBatu;
+    public double hTepung2;
+    public double hGulaPasir2;
+    public double hButter2;
+    public double hRagi2;
+    public double hSusuBubuk2;
+    public double hSusuCair2;
+    public double hTelur2;
+    public double hEsBatu2;
+    public double hTepung3;
+    public double hGulaPasir3;
+    public double hButter3;
+    public double hRagi3;
+    public double hSusuBubuk3;
+    public double hSusuCair3;
+    public double hTelur3;
+    public double hEsBatu3;
     
     // method
     public abstract double hitungTakaran();
@@ -65,7 +98,5 @@ public abstract class Bahan {
     public abstract void satuanBahan();
     
     public abstract void hargaBahan();
-    
-    public abstract void output();
     
 }
